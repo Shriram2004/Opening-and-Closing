@@ -1,81 +1,85 @@
 # Opening-and-Closing
 
-## Aim
+# Aim
 To implement Opening and Closing using Python and OpenCV.
 
-## Software Required
+# Software Required
 1. Anaconda - Python 3.7
 2. OpenCV
-## Algorithm:
-### Step1:
-<br>
+# Algorithm:
+## Step1:
+Import the necessary packages.
 
+## Step 2:
+Create the Text using cv2.putText.
 
-### Step2:
-<br>
+## Step 3:
+Create the structuring element.
 
-### Step3:
-<br>
+## Step 4:
+Use Opening operation.
 
-### Step4:
-<br>
+## Step 5:
+Use Closing Operation.
 
-### Step5:
-<br>
-
+## Step 6:
+Print the output and end the program.
  
-## Program:
+# Program:
 
+
+## Import the necessary packages
 ``` Python
-# Import the necessary packages
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+```
 
 
+## Create the Text using cv2.putText
+```python
+text_image = np.zeros((100,1000),dtype = 'uint8')
+font = cv2.FONT_HERSHEY_SIMPLEX = 3
+cv2.putText(text_image,"SHRRUTHILAYA GANGADARAN",(5,70),font,2,(255),5,cv2.LINE_AA)
+plt.title("Original Image")
+plt.imshow(text_image,'magma')
+plt.axis('off')
+```
 
-# Create the Text using cv2.putText
+## Create the structuring element
+```python
+kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(7,7))
+```
 
-
-
-# Create the structuring element
-
-
-
-# Use Opening operation
-
-
-
-
-# Use Closing Operation
-
-
-
-
+## Use Opening operation
+```python
+opening_image = cv2.morphologyEx(text_image,cv2.MORPH_OPEN,kernel)
+plt.title("Opening")
+plt.imshow(opening_image,'magma')
+plt.axis('off')
 
 ```
-## Output:
 
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+## Use Closing Operation
+```python
+closing_image = cv2.morphologyEx(text_image,cv2.MORPH_CLOSE,kernel)
+plt.title("Closing")
+plt.imshow(closing_image,'magma')
+plt.axis('off')
+```
 
-### Display the result of Opening
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-### Display the result of Closing
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-## Result
+
+# Output:
+
+## Display the input Image
+![](q1.png)
+
+## Display the result of Opening
+![](q2.png)
+## Display the result of Closing
+![](q3.png)
+
+# Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
